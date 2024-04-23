@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="first num" id="firstelement"> <br>
+    <input type="text" placeholder="secod num" id="secondelement"> <br>
+    <button onclick="sumOfNum()">Calculate sum</button>
+    <div id="finalsum"></div>
+</body>
+<script>
+    async function sumOfNum(){
+        const a=Number(document.getElementById("firstelement").value);
+        const b=Number(document.getElementById("secondelement").value);
+        //const ans=document.getElementById("finalsum")
+        //ans.innerHTML=a+b
+       const response=await fetch("https://sum-server.100xdevs.com/sum?a="+a+"&b="+b)
+       const answer=await response.text()
+       document.getElementById("finalsum").innerHTML=answer
+        
+
+    }
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="principal" id="principal"><br>
+    <input type="text" placeholder="rate" id="rate"><br>
+    <input type="text" placeholder="time" id="time"><br>
+    <button id="interest" onclick="calculate()">Calculate</button>
+    <div id="total"></div>
+    <div id="interestResult"></div>
+    
+</body>
+<script>
+  async function calculate(){ const p=document.getElementById("principal").value
+    const r=document.getElementById("rate").value
+    const t=document.getElementById("time").value
+
+    const response=await fetch("https://sum-server.100xdevs.com/interest?principal="+p+"&rate="+r+"&time="+t)
+    const ans=await response.json()
+    document.getElementById("total").innerHTML = "Total: " + ans.total;
+    document.getElementById("interestResult").innerHTML = "Interest: " + ans.interest;
+}
+</script>
+</html> 
