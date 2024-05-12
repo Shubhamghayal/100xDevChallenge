@@ -6,7 +6,16 @@ import { useState } from "react";
 export function Assignment1() {
     const [input, setInput] = useState(0);
     // Your solution starts here
-    const expensiveValue = 0; 
+    const expensiveValue = useMemo(()=>{
+        function calFact(num){
+        if (num === 0) { 
+            return 1; 
+        } 
+        else { 
+            return num * factorial(num - 1 ); 
+        }}
+        return calFact(input)
+    },[input]) 
     // Your solution ends here
 
     return (
