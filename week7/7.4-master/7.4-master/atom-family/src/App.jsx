@@ -1,6 +1,6 @@
 
 import './App.css'
-import { RecoilRoot, useRecoilState } from 'recoil';
+import { RecoilRoot, useRecoilValue } from 'recoil';
 import { todosAtomFamily } from './atoms';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
 }
 
 function Todo({id}) {
-   const [todo, setTodo] = useRecoilState(todosAtomFamily(id));
+   const todo = useRecoilValue(todosAtomFamily(id));
 
   return (
     <>
